@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Juego</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Contenedor del juego -->
+    <div id="game-container"></div>
+
+    <!-- Framework Phaser -->
+    <!--<script src="lib/phaser.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+
+    <!-- Entidades -->
+    <script src="src/entities/Player.js"></script>
+
+    <!-- Escenas -->
+    <script src="src/scenes/PreloadScene.js"></script>
+    <script src="src/scenes/Level1Scene.js"></script>
+
+    <!-- Configuración -->
+    <script src="src/config/gameConfig.js"></script>
+
+    <!-- Inicio del juego -->
+    <script src="src/main.js"></script>
+
+</body>
+</html>
