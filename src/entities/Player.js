@@ -190,9 +190,41 @@ class Player {
 
         // Cuando termina el disparo, vuelve a idle
         this.sprite.once('animationcomplete-player-shoot', () => {
+            this.createBullet();
             this.isShooting = false;
             this.currentState = 'idle';
             this.playIdle();
+        });
+    }
+
+    createBullet() {
+        const direction = this.sprite.flipX ? -1 : 1;
+
+        // Posición desde donde nace la bala
+        const bulletX = this.sprite.x + (direction * 58);
+        const bulletY = this.sprite.y - 105;
+
+        const bullet = this.scene.physics.add.sprite(bulletX, bulletY, 'playerBullet');
+
+        bullet.setOrigin(0.5);
+
+        // Tamaño visual de la bala
+        bullet.setScale(0.2);
+
+        bullet.setFlipX(direction < 0);
+        bullet.setDepth(this.sprite.depth + 1);
+        bullet.body.allowGravity = false;
+
+        // Tamaño del cuerpo de colisión
+        bullet.body.setSize(bullet.width, bullet.height);
+
+        // Velocidad de la bala
+        bullet.setVelocityX(direction * 700);
+
+        this.scene.time.delayedCall(1800, () => {
+            if (bullet.active) {
+                bullet.destroy();
+            }
         });
     }
 

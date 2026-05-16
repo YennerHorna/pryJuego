@@ -30,6 +30,9 @@ class PreloadScene extends Phaser.Scene {
             frameHeight: 533
         });
 
+        // Bala del personaje
+        this.load.image('playerBullet', 'assets/sprites/player/bullets/player_bullet.png');
+
         // Música de fondo del nivel 1
         this.load.audio('musica', 'assets/audio/music/background.mp3');
     }
